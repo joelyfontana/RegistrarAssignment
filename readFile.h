@@ -5,15 +5,11 @@ Section 1
 Assignment 4 - Registrar's Office*/
 
 #include <iostream>
-#include "window.h"
 using namespace std;
 
-Window::Window()
+class ReadFile
 {
-
-}
-
-Window::~Window()
-{
-
-}
+public:
+	ReadFile(string fileName);
+	int readFile(string inputFileName);
+};

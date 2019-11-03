@@ -8,12 +8,12 @@ Assignment 4 - Registrar's Office*/
 #include "window.h"
 using namespace std;
 
-Window::Window()
+class Registrar
 {
+public:
+	Registrar();
+	~Registrar();
 
-}
-
-Window::~Window()
-{
-
-}
+	//functions
+	void makeWindows();
+};
