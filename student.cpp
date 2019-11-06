@@ -11,27 +11,19 @@ using namespace std;
 //use an array to take in the students - cpp or header file?? not sure which
 
 //constructor
-StudentInfo::StudentInfo()
+Student::Student(int studentWindowTime)
 {
-	
+	//take in the amount of time the student needs at the window
+	windowTime = studentWindowTime;
+	//cout << "window time: " << windowTime << endl;
 }
 
 //destructor
-StudentInfo::~StudentInfo()
+Student::~Student()
 {
 
 }
 
-void StudentInfo::timeInterval()
-{
-	if (atWindow == true)
-	{
-		waitTimeLeft--;
-	}
-	else
-	{
-		waitTime++;
-	}
-}
+
 
 

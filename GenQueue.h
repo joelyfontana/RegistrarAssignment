@@ -4,6 +4,8 @@ Data Structures
 Section 1
 Assignment 4 - Registrar's Office*/
 
+//to solve the redefining errors (when the class is being called multiple times)
+#pragma once
 #include <iostream>
 #include "doubleLinkList.h"
 using namespace std;
@@ -23,7 +25,7 @@ public:
 	T peek();
 	bool isEmpty();
 	int getSize();	
-	ListNode<T>* listQueue;
+	DoublyLinkedList<T>* listQueue;
 };
 
 //GenQueue implementation
@@ -31,7 +33,7 @@ public:
 template <class T>
 GenQueue<T>::GenQueue()
 {
-
+	listQueue = new DoublyLinkedList<T>();
 }
 
 //destructor
@@ -78,6 +80,6 @@ bool GenQueue<T>::isEmpty()
 template <class T>
 int GenQueue<T>::getSize()
 {
-	return listQueue.getSize();
+	return listQueue->getSize();
 }
 

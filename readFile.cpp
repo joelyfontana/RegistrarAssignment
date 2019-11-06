@@ -8,14 +8,20 @@ Assignment 4 - Registrar's Office*/
 #include <fstream>
 #include <string>
 #include "readFile.h"
+#include "GenQueue.h"
 using namespace std;
 
 ReadFile::ReadFile(string fileName)
 {
+	//cout << "entered the readFile con" << endl;
+	//instantiate the queue
+	fileQueue = new GenQueue<int>();
+	//cout << "print" << endl;
 	readFile(fileName);
+	//cout << "fileRead" << endl;
 }
 
-int ReadFile::readFile(string inputFileName)
+void ReadFile::readFile(string inputFileName)
 {
 	ifstream inputFile;
 	inputFile.open(inputFileName);
@@ -28,31 +34,18 @@ int ReadFile::readFile(string inputFileName)
 
 	//print out the file and get the length
 	string line;
-	int length=0;
+	//cout << "after line" << endl;
 	while (getline(inputFile, line))
 	{
-		//cout << line << endl;
-		length++;
+		//cout << "while loop" << endl;
+		int fileLine = stoi(line);
+		cout << "fileLine: " << fileLine << endl;
+		fileQueue->insert(fileLine);
 	}
-	cout << "length: " << length << endl;
-	inputFile.clear();
-	inputFile.seekg(0);
-
-	//make a new int array pointer to get the length
-	int* fileArray = new int [length];
-
-	int lineCount=0;
-	while (getline(inputFile, line))
-	{
-		fileArray[lineCount] = stoi(line);
-		lineCount++;
-	}
-
-	for (int i = 0; i < length; ++i)
-	{
-		cout << "fileArray: " << fileArray[i] << endl;
-	}
-
-	cout << "Number of Windows: " << fileArray[0] << endl;
-	return fileArray[0];
+	int temp = fileQueue->peek();
+	int qSize = fileQueue->getSize();
+	//cout << "size: " << qSize << endl;
+	//cout << "fileQueue: " << temp << endl;
+	//close the file
+	inputFile.close();
 }

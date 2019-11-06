@@ -4,19 +4,18 @@ Data Structures
 Section 1
 Assignment 4 - Registrar's Office*/
 
+#pragma once
 #include <iostream>
 using namespace std;
 
-class StudentInfo
+class Student
 {
 public:
-	StudentInfo();
-	~StudentInfo();
+	Student(int studentWindowTime);
+	~Student();
 
 	bool atWindow;
-	signed int waitTimeLeft; //so it cant go negative
-	int waitTime;
-
-	//functions
-	void timeInterval();
+	
+	int windowTime;
+	
 };

@@ -4,6 +4,8 @@ Data Structures
 Section 1
 Assignment 4 - Registrar's Office*/
 
+//to solve the redefining errors (when the class is being called multiple times)
+#pragma once
 #include <iostream>
 #include "listNode.h"
 using namespace std;
@@ -14,9 +16,11 @@ template <class T>
 //doubly linked list class
 class DoublyLinkedList
 {
+//make the nodes
 public:
 	ListNode<T> *front;
 	ListNode<T> *back;
+//make size unsigned so it cant go negative
 	unsigned int size;
 
 //constructor
@@ -80,8 +84,9 @@ void DoublyLinkedList<T>::insertFront(T d)
 	//if the list is not empty, insert the new node into the beginning of the list
 	else
 	{
-		node->next = front;
+		
 		front->prev = node;
+		node->next = front;
 	}
 	//make the new node the front and increment the size
 	front = node;
@@ -91,7 +96,13 @@ void DoublyLinkedList<T>::insertFront(T d)
 //remove front function
 template <class T>
 T DoublyLinkedList<T>::removeFront()
-{
+{ 
+	//make sure the list is not empty and if it is throw an error
+	if (isEmpty())
+	{
+		throw runtime_error("list is empty");
+	}
+
 	ListNode<T>* frontTemp = front;
 	//check to see if the list is empty before removing
 	if (size == 1)
@@ -101,7 +112,7 @@ T DoublyLinkedList<T>::removeFront()
 	else
 	{
 	//deletes the pointer that points back to the front element so you cant go back - but can still go forward
-		front->next->previous = NULL;
+		front->next->prev = NULL;
 	}
 	//move the front variable to the next node - now front only exists in the frontTemp variable
 	front = front->next;
@@ -126,12 +137,14 @@ void DoublyLinkedList<T>::insertBack(T d)
 	///check if the list is empty
 	if (isEmpty())
 	{
+	//the front is the same as node
 		front = node;
 	}
 	else
 	{
+	//if not empty
 		back->next = node;
-		node->previous = back;
+		node->prev = back;
 	}
 	back = node;
 	size++;
@@ -141,13 +154,14 @@ void DoublyLinkedList<T>::insertBack(T d)
 template <class T>
 T DoublyLinkedList<T>::removeBack()
 {
-	//make a new node
-	ListNode<T>* backTemp = back;
 	//make sure the list is not empty and if it is throw an error
 	if (isEmpty())
 	{
 		throw runtime_error("list is empty");
 	}
+	//make a new node
+	ListNode<T>* backTemp = back;
+	
 	//if there is one element in the list make the back and the front the same
 	if (size == 1)
 	{

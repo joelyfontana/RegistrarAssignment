@@ -4,6 +4,8 @@ Data Structures
 Section 1
 Assignment 4 - Registrar's Office*/
 
+//to solve the redefining errors (when the class is being called multiple times)
+#pragma once
 #include <iostream>
 using namespace std;
 
@@ -16,8 +18,8 @@ class ListNode
 public:
 	T data;
 	//make the pointers
-	ListNode *next;
-	ListNode* prev;
+	ListNode<T> *next;
+	ListNode<T> *prev;
 
 	//constructor
 	ListNode();
@@ -30,7 +32,7 @@ public:
 //ListNode Functions
 //constructor 
 template <class T>
-ListNode<T>::ListNode() {};
+ListNode<T>::ListNode() {}
 
 //overloaded constructor
 template <class T>
