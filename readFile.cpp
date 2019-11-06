@@ -39,7 +39,7 @@ void ReadFile::readFile(string inputFileName)
 	{
 		//cout << "while loop" << endl;
 		int fileLine = stoi(line);
-		cout << "fileLine: " << fileLine << endl;
+		//cout << "fileLine: " << fileLine << endl;
 		fileQueue->insert(fileLine);
 	}
 	int temp = fileQueue->peek();

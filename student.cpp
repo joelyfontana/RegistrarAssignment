@@ -16,6 +16,7 @@ Student::Student(int studentWindowTime)
 	//take in the amount of time the student needs at the window
 	windowTime = studentWindowTime;
 	//cout << "window time: " << windowTime << endl;
+	//atWindowCheck();
 }
 
 //destructor
@@ -24,6 +25,18 @@ Student::~Student()
 
 }
 
+int Student::atWindowCheck()
+{
+	cout << "entering at window check" << endl;
+	if (atWindow == false)
+	{
+		timeInLine++;
+		cout << "student time in line" << timeInLine << endl;
+	}
+	totalTimeInLine += timeInLine;
+	cout << "students total time in line: " << totalTimeInLine << endl;
+	return totalTimeInLine;
+}
 
 
 

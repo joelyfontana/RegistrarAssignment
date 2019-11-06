@@ -24,6 +24,7 @@ public:
 	bool isAtWindow;
 	int windowTime;
 	int windowIdle;
-	bool windowOccupied;
+	int totalWindow;
+	//bool windowOccupied;
 
 };

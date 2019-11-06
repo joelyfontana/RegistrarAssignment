@@ -29,7 +29,6 @@ int main(int argc, char** argv)
 	cout << "Welcome to the Student Registar!" << endl;
 
 	Registrar registrar = Registrar(fileName);
-	//cout << "finished reg" << endl;
 	
 	//bool somethin = runFunction(registrar);
 	bool isOkToRun;
@@ -38,18 +37,22 @@ int main(int argc, char** argv)
 	{
 		do
 		{
-			cout << "\twhile loop" << endl;
+			//cout << "\twhile loop" << endl;
 			registrar.nextMinute();
-			cout << "after while loop next minute" << endl;
+			//cout << "after while loop next minute" << endl;
 
 			isOkToRun = runFunction(registrar);
-			cout << "Is Ok To RUn: " << isOkToRun << endl;
+			cout << "Is Ok To Run: " << isOkToRun << endl;
 
 		} while (isOkToRun);
+
+
+	
 	}
 	catch (runtime_error e)
 	{
-		cout << "The mean student wait time: " << endl;
+		int mean = registrar.mean;
+		cout << "The mean student wait time: " << mean << endl;
 		cout << "The median student wait time: " << endl;
 		cout << "The longest student wait time: " << endl;
 		cout << "The number of students waiting over 10 minutes: " << endl;
@@ -65,22 +68,22 @@ bool runFunction(Registrar& reg)
 
 	if (reg.fileReader->fileQueue->getSize() != 0)
 	{
-		cout << "line1good" << endl;
+		//cout << "line1good" << endl;
 		return true;
 		
 	}
 	cout << "Student Queue size: " << reg.studentQueue.getSize() << endl;
 	if (reg.studentQueue.getSize() != 0)
 	{
-		cout << "line2good" << endl;
+		//cout << "line2good" << endl;
 		return true;
 		
 	}
 	for (int i = 0; i < reg.numWindows; ++i)
 	{
-		if (reg.windowArray[i].windowOccupied == true)
+		if (reg.windowArray[i].isAtWindow == true)
 		{
-			cout << "line3good" << endl;
+			//cout << "line3good" << endl;
 			return true;
 			
 		}

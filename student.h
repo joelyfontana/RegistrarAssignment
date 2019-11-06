@@ -13,9 +13,10 @@ class Student
 public:
 	Student(int studentWindowTime);
 	~Student();
+	int atWindowCheck();
 
 	bool atWindow;
-	
+	int timeInLine;
+	int totalTimeInLine;
 	int windowTime;
-	
 };

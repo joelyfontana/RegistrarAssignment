@@ -13,7 +13,8 @@ Window::Window()
 {
 	//set the window occupied equal to false;
 	windowTime = 0;
-	windowOccupied = false;
+	isAtWindow = false;
+	//windowOccupied = false;
 }
 
 Window::~Window()
@@ -30,7 +31,7 @@ void Window::getStudent(Student* nextStudent)
 	student = nextStudent;
 	//when the student gets to the window, the time spent at the window starts at 0
 	windowTime = 0;
-	cout << "windowTime: " << windowTime << endl;
+	//cout << "windowTime: " << windowTime << endl;
 }
 
 void Window::timeInterval()
@@ -38,9 +39,10 @@ void Window::timeInterval()
 	if (isAtWindow == true)
 	{
 		//incriment the time the student is at the window
-		cout << "Student time at window: " << windowTime << endl;
+	
 		windowTime++;
-		windowOccupied = true;
+		cout << "Student time at window: " << windowTime << endl;
+		//windowOccupied = true;
 	}
 	//incriment idle time
 	else

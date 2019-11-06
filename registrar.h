@@ -20,14 +20,20 @@ public:
 	//variables 
 	int numWindows;
 	ReadFile* fileReader;
+	Student* tempStudent;
+
 	int time;
+	int mean;
 
 	//make a queue of students (make it a pointer)
 	GenQueue<Student*> studentQueue;
+	GenQueue<Student*> usedStudentQueue;
 	Window* windowArray;
 
 	//functions
+	void getTime();
 	void makeWindows();
 	void makeStudents();
 	void nextMinute();
+	void calcStats();
 };
