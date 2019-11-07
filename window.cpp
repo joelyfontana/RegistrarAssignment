@@ -11,10 +11,8 @@ using namespace std;
 
 Window::Window()
 {
-	//set the window occupied equal to false;
 	windowTime = 0;
 	isAtWindow = false;
-	//windowOccupied = false;
 }
 
 Window::~Window()
@@ -34,12 +32,27 @@ void Window::getStudent(Student* nextStudent)
 	//cout << "windowTime: " << windowTime << endl;
 }
 
+Student* Window::removeStudent()
+{
+	if (isAtWindow == true)
+	{
+		if (windowTime == student->windowTime)
+		{
+			cout << "student time: " << student->windowTime << endl;
+			isAtWindow = false;
+			Student* tempStudent = student;
+			student = NULL;
+			tempStudent->atWindow = false;
+			return tempStudent;
+		}
+	}
+}
+
 void Window::timeInterval()
 {
 	if (isAtWindow == true)
 	{
 		//incriment the time the student is at the window
-	
 		windowTime++;
 		cout << "Student time at window: " << windowTime << endl;
 		//windowOccupied = true;

@@ -4,6 +4,7 @@ Data Structures
 Section 1
 Assignment 4 - Registrar's Office*/
 
+#pragma once
 #include <iostream>
 #include "window.h"
 #include "GenQueue.h"
@@ -20,7 +21,6 @@ public:
 	//variables 
 	int numWindows;
 	ReadFile* fileReader;
-	Student* tempStudent;
 
 	int time;
 	int mean;
@@ -31,7 +31,7 @@ public:
 	Window* windowArray;
 
 	//functions
-	void getTime();
+	//void getTime();
 	void makeWindows();
 	void makeStudents();
 	void nextMinute();
