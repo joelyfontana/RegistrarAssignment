@@ -12,6 +12,7 @@ using namespace std;
 Window::Window()
 {
 	windowTime = 0;
+	windowIdle = 0;
 	isAtWindow = false;
 }
 
@@ -38,14 +39,16 @@ Student* Window::removeStudent()
 	{
 		if (windowTime == student->windowTime)
 		{
-			cout << "student time: " << student->windowTime << endl;
+			//cout << "student time: " << student->windowTime << endl;
 			isAtWindow = false;
+			student->atWindow = false;
 			Student* tempStudent = student;
-			student = NULL;
-			tempStudent->atWindow = false;
+			student = nullptr;
 			return tempStudent;
 		}
 	}
+
+	return NULL;
 }
 
 void Window::timeInterval()
@@ -54,8 +57,7 @@ void Window::timeInterval()
 	{
 		//incriment the time the student is at the window
 		windowTime++;
-		cout << "Student time at window: " << windowTime << endl;
-		//windowOccupied = true;
+		//cout << "Student time at window: " << windowTime << endl;
 	}
 	//incriment idle time
 	else
@@ -63,4 +65,9 @@ void Window::timeInterval()
 		windowIdle++;
 	}
 	
+}
+
+Student* Window::peekStudent()
+{
+	return student;
 }

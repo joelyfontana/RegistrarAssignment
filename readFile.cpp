@@ -25,7 +25,7 @@ void ReadFile::readFile(string inputFileName)
 {
 	ifstream inputFile;
 	inputFile.open(inputFileName);
-	cout << "Filename: " << inputFileName << endl;
+	//cout << "Filename: " << inputFileName << endl;
 
 	if (!inputFile)
 	{

@@ -26,11 +26,11 @@ Student::~Student()
 
 void Student::atWindowCheck()
 {
-	cout << "entering at window check" << endl;
+	//cout << "entering at window check" << endl;
 	if (atWindow == false)
 	{
 		timeInLine++;
-		cout << "student time in line: " << timeInLine << endl;
+		//cout << "student time in line: " << timeInLine << endl;
 	}
 	//cout << "students total time in line: " << imeInLine << endl;
 }

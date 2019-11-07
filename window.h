@@ -22,6 +22,7 @@ public:
 	void getStudent(Student* nextStudent);
 	void timeInterval();
 	Student* removeStudent();
+	Student* peekStudent();
 	//variables
 	bool isAtWindow;
 	int windowTime;

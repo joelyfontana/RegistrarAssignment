@@ -24,6 +24,12 @@ public:
 
 	int time;
 	int mean;
+	int median;
+	int longestStudentWait;
+	int greaterTen;
+	int meanIdle;
+	int longIdle=0;
+	int windCount=0;
 
 	//make a queue of students (make it a pointer)
 	GenQueue<Student*> studentQueue;

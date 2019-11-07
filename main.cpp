@@ -37,29 +37,20 @@ int main(int argc, char** argv)
 	{*/
 		do
 		{
-			//cout << "\twhile loop" << endl;
 			registrar.nextMinute();
-			//cout << "after while loop next minute" << endl;
 
 			isOkToRun = runFunction(registrar);
-			//cout << "Is Ok To Run: " << isOkToRun << endl;
 
 		} while (isOkToRun);
 
-
-	
-	//}
-	/*catch (runtime_error e)
-	{*/
 		registrar.calcStats();
-		int mean = registrar.mean;
-		cout << "The mean student wait time: " << mean << endl;
-		cout << "The median student wait time: " << endl;
-		cout << "The longest student wait time: " << endl;
-		cout << "The number of students waiting over 10 minutes: " << endl;
-		cout << "The mean window idle time: " << endl;
-		cout << "The longest window idle time: " << endl;
-		cout << "The number of windows idle over 5 minutes: " << endl;
+		cout << "The mean student wait time: " << registrar.mean << endl;
+		cout << "The median student wait time: " << registrar.median << endl;
+		cout << "The longest student wait time: " << registrar.longestStudentWait<<endl;
+		cout << "The number of students waiting over 10 minutes: " << registrar.greaterTen << endl;
+		cout << "The mean window idle time: " << registrar.meanIdle<< endl;
+		cout << "The longest window idle time: " << registrar.longIdle << endl;
+		cout << "The number of windows idle over 5 minutes: " << registrar.windCount << endl;
 	//}
 }
 
@@ -92,7 +83,7 @@ bool runFunction(Registrar& reg)
 
 	//cout << "Ok to run: " << to_string(okToRun) << endl;
 
-	cout << "Program has ended!" << endl;
+	//cout << "Program has ended!" << endl;
 	//okToRun = false;
 	return false;
 }
